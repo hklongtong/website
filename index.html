@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> 隆通國際發展有限公司 | 專業升學諮詢及高端人才招聘</title>
+    <meta name="description" content="隆通國際發展有限公司(Long Tong Intl Development Limited)提供專業人力資源服務、香港留學升學諮詢及高端人才招聘。致力於連結國內專才與香港發展機遇。">
+    
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <style>
+        :root {
+            --primary-blue: #004EA1;
+            --primary-yellow: #F6AC02;
+            --light-blue: #E3F2FD;
+            --light-yellow: #FFFDE7;
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--light-blue);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--primary-yellow);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-text { font-size: 2rem; font-weight: 800; text-decoration: none; z-index: 1001; }
+        .logo-blue { color: var(--primary-blue); }
+        .logo-yellow { color: var(--primary-yellow); }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; font-size: 1.5rem; }
+        .nav-links a:hover { color: var(--primary-yellow); }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
+        .hamburger div { width: 25px; height: 3px; background-color: var(--primary-blue); transition: 0.3s; }
+
+        @media (max-width: 992px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed; right: -100%; top: 0; height: 100vh; width: 70%;
+                background: var(--white); flex-direction: column; align-items: center;
+                justify-content: center; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 78, 161, 0.65), rgba(0, 51, 102, 0.75)), 
+                        url('https://images.unsplash.com/photo-1518599807935-37015b9cefcb?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center center; color: var(--white);
+            padding: 120px 5%; text-align: center; border-bottom: 8px solid var(--primary-yellow);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+	
+	.btn {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #ffc107;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section { padding: 80px 10%; }
+        .section-alt { background-color: var(--light-yellow); }
+        .white-bg { background-color: var(--white); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary-blue); position: relative; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--primary-yellow); }
+
+        /* Grid & Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--white); border-radius: 15px; border-top: 5px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s; text-align: center; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); border-top-color: var(--primary-yellow); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-inner { padding: 25px; }
+        .card h3 { color: var(--primary-blue); margin-bottom: 15px; }
+
+        /* Contact Area */
+	.contact-box {
+            background: var(--primary-blue);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+
+        footer { background-color: #1a1a1a; color: #ddd; text-align: center; padding: 30px; font-size: 0.9rem; }
+
+        /* Burger Animation */
+        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+        .toggle .line2 { opacity: 0; }
+        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo-text">
+        <span class="logo-blue">隆通國際</span><span class="logo-yellow">發展有限公司</span>
+    </a>
+    <div class="hamburger" id="hamburger">
+        <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+    </div>
+    <nav class="nav-links" id="nav-links">
+        <a href="#about" onclick="toggleMenu()">關於我們</a>
+        <a href="#services" onclick="toggleMenu()">專業服務</a>
+        <a href="#vision" onclick="toggleMenu()">願景價值</a>
+        <a href="#contact" onclick="toggleMenu()">聯絡我們</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>專業・誠實・可靠</h1>
+    <p>深耕香港，連結全球人才。為您提供最優質的升學、就業及人力資源解決方案。</p>
+    <a href="#contact" class="btn">立即獲取專業諮詢</a>
+</section>
+
+
+<section id="about">
+    <div class="section-title"><h2>關於隆通國際</h2></div>
+    <div style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+        <p>香港隆通國際人力資源有限公司致力於成為國內專才與香港機遇之間的橋樑。協助學生開拓國際視野，並助力企業獲取核心競爭力。</p>
+    </div>
+</section>
+
+<section id="services" class="section-alt">
+    <div class="section-title"><h2>專業服務項目</h2></div>
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=600&q=80" alt="Education" loading="lazy">
+            <div class="card-inner">
+                <h3>教育升學諮詢</h3>
+                <p>量身定制留學規劃，涵蓋香港各大名校申請，提供全程專業指導。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1698047681452-08eba22d0c64?auto=format&fit=crop&w=600&q=80" alt="Recruitment" loading="lazy">
+            <div class="card-inner">
+                <h3>高端人才招聘</h3>
+                <p>為香港企業精準篩選國內優秀專才，優化企業人力結構。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=600&q=80" alt="Consulting" loading="lazy">
+            <div class="card-inner">
+                <h3>企業管理顧問</h3>
+                <p>提供人力資源管理建議，協助企業有效落實人才引進政策。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="vision" class="white-bg">
+    <div class="section-title"><h2>願景與價值觀</h2></div>
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?auto=format&fit=crop&w=600&q=80" alt="Vision">
+            <div class="card-inner">
+                <h3>願景</h3>
+                <p>成為中國最受信賴的人力資源升學公司，幫助國內人才實現夢想，開拓國際化視野。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=600&q=80" alt="Integrity">
+            <div class="card-inner">
+                <h3>誠信與責任</h3>
+                <p>我們堅守誠信和責任，確保提供客戶至上的服務，並建立長期的信任關係。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Innovation">
+            <div class="card-inner">
+                <h3>專業與創新</h3>
+                <p>我們致力於提供最專業和創新的服務，以滿足學生和家長的需求。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-title"><h2>聯絡我們</h2></div>
+    <div class="contact-box">
+        <p><strong>辦事處地址：</strong></p>
+        <p>香港九龍尖沙咀廣東道30號新港中心第二座9樓905至906室</p>
+        <p style="margin-top: 20px;"><strong>電子郵件：</strong></p>
+        <p><a href="mailto:info@hklongtong.com" style="color:white; text-decoration: none;">info@hklongtong.com</a></p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; <span id="current-year"></span> 香港隆通國際人力資源有限公司 版權所有</p>
+</footer>
+
+<script>
+    // 1. Mobile Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    function toggleMenu() {
+        hamburger.classList.toggle('toggle');
+        navLinks.classList.toggle('active');
+    }
+    hamburger.addEventListener('click', toggleMenu);
+
+    // 2. Automated Copyright Year Script
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
